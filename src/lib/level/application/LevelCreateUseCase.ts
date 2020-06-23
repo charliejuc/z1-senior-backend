@@ -1,5 +1,5 @@
 import { Level } from '@/lib/level/domain/Level'
-import { LevelCreateParams } from './interfaces/LevelCreateParams'
+import { LevelCreateParams } from '../domain/interfaces/LevelCreateParams'
 
 export class LevelCreateUseCase {
     handle(levelCreateParams: LevelCreateParams): Level {
