@@ -20,9 +20,8 @@ export class ContentMock {
         name: ContentNameType,
         contentConfig?: ContentConfig
     ): ContentCreateParams {
-        const nameFirstUppercased = `${name[0].toUpperCase()}${name.slice(
-            1
-        )}`
+        const nameFirstUppercased =
+            name[0].toUpperCase() + name.slice(1)
         const methodName: methodsAllowed = `random${nameFirstUppercased}` as methodsAllowed
 
         return name === 'quizz'
@@ -51,9 +50,8 @@ export class ContentMock {
         }
 
         const questionType = contentConfig.questionType
-        const questionTypeFirstUppercased = `${questionType[0].toUpperCase()}${questionType.slice(
-            1
-        )}`
+        const questionTypeFirstUppercased =
+            questionType[0].toUpperCase() + questionType.slice(1)
         const methodName = `randomQuizz${questionTypeFirstUppercased}` as methodsAllowed
 
         return this[methodName]()
