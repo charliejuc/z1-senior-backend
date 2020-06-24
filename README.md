@@ -1,4 +1,4 @@
-# Typescript prettier-standard template
+# Z1 Senior Backend
 A simple template to initiate writing typescript code with linter and basic build commands.
 
 Dependencies Installation:
