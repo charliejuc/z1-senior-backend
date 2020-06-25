@@ -13,7 +13,7 @@ export interface Question {
 }
 
 export type ContentNameType = 'text' | 'quizz'
-export interface ContentType {
+export interface ContentTypeObject {
     name: ContentNameType
 
     // text type keys
@@ -27,5 +27,5 @@ export interface ContentType {
 
 export interface ContentCreateParams {
     order: number
-    type: ContentType
+    type: ContentTypeObject
 }

@@ -1,6 +1,6 @@
 import { ContentCreateUseCase } from '@/lib/content/application/ContentCreateUseCase'
 import { ContentId } from '@/lib/content/domain/value-object/ContentId'
-import { ContentTypeObject } from '@/lib/content/domain/value-object/ContentType'
+import { ContentType } from '@/lib/content/domain/value-object/ContentType'
 import { Order } from '@/lib/shared/domain/value-object/Order'
 import { ContentMock } from '../domain/ContentMock'
 
@@ -27,7 +27,7 @@ describe('ContentCreateUseCase should return a valid Content instance(type: "tex
 
     describe('should have type', () => {
         test('type', () => {
-            expect(content.type).toBeInstanceOf(ContentTypeObject)
+            expect(content.type).toBeInstanceOf(ContentType)
         })
 
         test('type.questions', () => {

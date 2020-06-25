@@ -1,16 +1,16 @@
 import {
     ContentNameType,
-    ContentType,
+    ContentTypeObject,
     Question
 } from '../interfaces/ContentCreateParams'
 import { ContentQuestion } from './ContentQuestion'
 
-export class ContentTypeObject {
+export class ContentType {
     private readonly _name: ContentNameType
     private readonly _text: string | null
     private readonly _questions: ContentQuestion[] | null
 
-    constructor(contentType: ContentType) {
+    constructor(contentType: ContentTypeObject) {
         this._name = contentType.name
         this._text = contentType.text ?? null
 
