@@ -1,5 +1,5 @@
 import { LevelId } from './value-object/LevelId'
-import { LevelCreateParams } from './interfaces/LevelCreateParams'
+import { LevelCreateParams } from './interfaces/LevelParams'
 import { LevelTitle } from './value-object/LevelTitle'
 import { LevelDescription } from './value-object/LevelDescription'
 

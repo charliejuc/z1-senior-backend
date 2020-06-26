@@ -13,7 +13,7 @@ test('ContentCreateUseCase should be exists', () => {
 
 describe('ContentCreateUseCase should return a valid Content instance(type: "text")', () => {
     const randomContentParams = contentMock.random('text')
-    const contentCreateUseCase = new ContentCreateUseCase()
+    const contentCreateUseCase = contentMock.ContentCreateUseCase()
 
     const content = contentCreateUseCase.handle(randomContentParams)
 
@@ -50,7 +50,7 @@ describe('ContentCreateUseCase should return a valid Content instance(type: "qui
         const randomContentParams = contentMock.random('quizz', {
             questionType
         })
-        const contentCreateUseCase = new ContentCreateUseCase()
+        const contentCreateUseCase = contentMock.ContentCreateUseCase()
 
         const content = contentCreateUseCase.handle(
             randomContentParams
@@ -78,7 +78,7 @@ describe('ContentCreateUseCase should return a valid Content instance(type: "qui
                 const questions = content.type.questions ?? []
 
                 expect(questions[0].text).toBeTruthy()
-                expect(questions[0].type).toBe(questionType)
+                expect(questions[0].type).toBe('simple')
             })
 
             test('type.questions.answers', () => {
@@ -87,6 +87,80 @@ describe('ContentCreateUseCase should return a valid Content instance(type: "qui
 
                 const answers = questions[0].answers ?? []
                 expect(answers.length).toBeGreaterThan(0)
+            })
+
+            test('type.text', () => {
+                expect(content.type.text).toBeNull()
+            })
+        })
+    })
+
+    describe('Question type "multiple"', () => {
+        const questionType: ContentQuestionType = 'multiple'
+        const randomContentParams = contentMock.random('quizz', {
+            questionType
+        })
+        const contentCreateUseCase = contentMock.ContentCreateUseCase()
+
+        const content = contentCreateUseCase.handle(
+            randomContentParams
+        )
+
+        describe('should have type', () => {
+            test('type', () => {
+                expect(content.type).toBeInstanceOf(ContentType)
+            })
+
+            test('type.questions', () => {
+                const questions = content.type.questions ?? []
+
+                expect(questions[0].text).toBeTruthy()
+                expect(questions[0].type).toBe('multiple')
+            })
+
+            test('type.questions.answers', () => {
+                const questions = content.type.questions ?? []
+                expect(questions).toBeTruthy()
+
+                const answers = questions[0].answers
+                expect(answers).toBeTruthy()
+            })
+
+            test('type.text', () => {
+                expect(content.type.text).toBeNull()
+            })
+        })
+    })
+
+    describe('Question type "open"', () => {
+        const questionType: ContentQuestionType = 'open'
+        const randomContentParams = contentMock.random('quizz', {
+            questionType
+        })
+        const contentCreateUseCase = contentMock.ContentCreateUseCase()
+
+        const content = contentCreateUseCase.handle(
+            randomContentParams
+        )
+
+        describe('should have type', () => {
+            test('type', () => {
+                expect(content.type).toBeInstanceOf(ContentType)
+            })
+
+            test('type.questions', () => {
+                const questions = content.type.questions ?? []
+
+                expect(questions[0].text).toBeTruthy()
+                expect(questions[0].type).toBe('open')
+            })
+
+            test('type.questions.answers', () => {
+                const questions = content.type.questions ?? []
+                expect(questions).toBeTruthy()
+
+                const answers = questions[0].answers
+                expect(answers).toBeFalsy()
             })
 
             test('type.text', () => {

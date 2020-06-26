@@ -5,11 +5,16 @@ import {
 } from '@/lib/content/domain/interfaces/ContentCreateParams'
 import faker from 'faker'
 import { ContentConfig, ContentQuizzMock } from './ContentQuizzMock'
+import { ContentCreateUseCase } from '@/lib/content/application/ContentCreateUseCase'
 
 type methodsAllowed = 'randomText' | 'randomQuizz'
 
 const contentQuizzMock = new ContentQuizzMock()
 export class ContentMock {
+    ContentCreateUseCase(): ContentCreateUseCase {
+        return new ContentCreateUseCase()
+    }
+
     random(
         name: ContentNameType,
         contentConfig?: ContentConfig

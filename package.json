@@ -29,15 +29,17 @@
         "start": "node dist/index.js"
     },
     "dependencies": {
-        "@types/uuid": "^8.0.0",
+        "defaults": "^1.0.3",
         "module-alias": "^2.2.2",
         "source-map-support": "^0.5.16",
         "uuid": "^8.1.0"
     },
     "devDependencies": {
+        "@types/uuid": "^8.0.0",
         "@babel/core": "^7.9.6",
         "@babel/preset-env": "^7.9.6",
         "@babel/preset-typescript": "^7.9.0",
+        "@types/defaults": "^1.0.3",
         "@types/faker": "^4.1.12",
         "@types/jest": "^25.2.1",
         "@types/node": "^13.7.7",

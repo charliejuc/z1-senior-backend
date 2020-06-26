@@ -12,7 +12,7 @@ test('LevelCreateUseCase should be exists', () => {
 
 describe('LevelCreateUseCase should return a valid Level instance', () => {
     const randomLevelParams = levelMock.random()
-    const levelCreateUseCase = new LevelCreateUseCase()
+    const levelCreateUseCase = levelMock.LevelCreateUseCase()
 
     const level = levelCreateUseCase.handle(randomLevelParams)
 

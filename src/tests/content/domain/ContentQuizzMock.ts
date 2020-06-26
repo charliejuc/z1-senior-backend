@@ -2,7 +2,7 @@ import {
     Answer,
     Question
 } from './../../../lib/content/domain/interfaces/ContentCreateParams'
-// import faker from 'faker'
+import defaults from 'defaults'
 import {
     ContentCreateParams,
     ContentQuestionType
@@ -16,6 +16,10 @@ type methodsAllowed =
 
 export interface ContentConfig {
     questionType: ContentQuestionType
+}
+
+export interface RandomQuestionOptions {
+    answers?: boolean
 }
 
 export class ContentQuizzMock {
@@ -49,27 +53,43 @@ export class ContentQuizzMock {
     }
 
     private randomQuizzOpen(): ContentCreateParams {
-        return this.randomQuizzBase('open')
+        return this.randomQuizzBase('open', {
+            answers: false
+        })
     }
 
     private randomQuizzBase(
-        type: ContentQuestionType
+        type: ContentQuestionType,
+        randomQuestionOptions?: RandomQuestionOptions
     ): ContentCreateParams {
         return {
             order: Math.floor(Math.random() * this.orderMax),
             type: {
                 name: 'quizz',
-                questions: [this.randomQuestion(type)]
+                questions: [
+                    this.randomQuestion(type, randomQuestionOptions)
+                ]
             }
         }
     }
 
-    private randomQuestion(type: ContentQuestionType): Question {
-        return {
+    private randomQuestion(
+        type: ContentQuestionType,
+        options?: RandomQuestionOptions
+    ): Question {
+        options = defaults(options, {
+            answers: true
+        })
+        const question: Question = {
             type,
-            text: faker.name.title(),
-            answers: this.randomAnswers()
+            text: faker.name.title()
         }
+
+        if (options?.answers === true) {
+            question.answers = this.randomAnswers()
+        }
+
+        return question
     }
 
     private randomAnswers(): Answer[] {
