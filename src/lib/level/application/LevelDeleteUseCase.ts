@@ -1,7 +1,10 @@
 import { LevelDeleteParams } from './../domain/interfaces/LevelParams'
+import { LevelRepositorySetter } from '../abstract/LevelRepositorySetter'
 
-export class LevelDeleteUseCase {
-    handle(levelDeleteParams: LevelDeleteParams): boolean {
-        return Boolean(levelDeleteParams.id)
+export class LevelDeleteUseCase extends LevelRepositorySetter {
+    async handle(
+        levelDeleteParams: LevelDeleteParams
+    ): Promise<boolean> {
+        return await this.levelRepository.delete(levelDeleteParams)
     }
 }

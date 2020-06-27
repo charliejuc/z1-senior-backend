@@ -3,6 +3,7 @@ import { LevelId } from '@/lib/level/domain/value-object/LevelId'
 import { LevelTitle } from '@/lib/level/domain/value-object/LevelTitle'
 import { LevelDescription } from '@/lib/level/domain/value-object/LevelDescription'
 import { LevelMock } from '../domain/LevelMock'
+import { Level } from '@/lib/level/domain/Level'
 
 const levelMock = new LevelMock()
 
@@ -13,8 +14,11 @@ test('LevelCreateUseCase should be exists', () => {
 describe('LevelCreateUseCase should return a valid Level instance', () => {
     const randomLevelParams = levelMock.random()
     const levelCreateUseCase = levelMock.LevelCreateUseCase()
+    let level: Level
 
-    const level = levelCreateUseCase.handle(randomLevelParams)
+    beforeAll(async () => {
+        level = await levelCreateUseCase.handle(randomLevelParams)
+    })
 
     test('should have id', () => {
         expect(level.id).toBeInstanceOf(LevelId)

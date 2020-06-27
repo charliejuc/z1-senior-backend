@@ -1,23 +1,39 @@
 import { LevelDeleteUseCase } from '@/lib/level/application/LevelDeleteUseCase'
 import { LevelMock } from '../domain/LevelMock'
+import { Level } from '@/lib/level/domain/Level'
 
 const levelMock = new LevelMock()
 
-test('LevelDeleteUseCase should be exists', () => {
-    expect(LevelDeleteUseCase).toBeTruthy()
-})
-
-describe('LevelDeleteUseCase success', () => {
+describe('LevelDeleteUseCase', () => {
     const randomLevelParams = levelMock.random()
     const levelCreateUseCase = levelMock.LevelCreateUseCase()
+    let level: Level
 
-    const level = levelCreateUseCase.handle(randomLevelParams)
+    beforeAll(async () => {
+        level = await levelCreateUseCase.handle(randomLevelParams)
+    })
 
-    test('should return true', () => {
+    test('should be exists', () => {
+        expect(LevelDeleteUseCase).toBeTruthy()
+    })
+
+    test('should return true', async () => {
         const levelDeleteUseCase = levelMock.LevelDeleteUseCase()
 
-        levelDeleteUseCase.handle({
+        const deleted = await levelDeleteUseCase.handle({
             id: level.id
         })
+
+        expect(deleted).toBeTruthy()
+    })
+
+    test('should return false', async () => {
+        const levelDeleteUseCase = levelMock.LevelDeleteUseCase()
+
+        const deleted = await levelDeleteUseCase.handle({
+            id: level.id
+        })
+
+        expect(deleted).toBeFalsy()
     })
 })
