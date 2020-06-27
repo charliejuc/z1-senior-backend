@@ -1,3 +1,4 @@
+import { ContentId } from '@/lib/content/domain/value-object/ContentId'
 export interface Answer {
     text: string
     correct: boolean
@@ -28,4 +29,12 @@ export interface ContentTypeObject {
 export interface ContentCreateParams {
     order: number
     type: ContentTypeObject
+}
+
+export interface ContentParams extends ContentCreateParams {
+    id: string
+}
+
+export interface ContentDeleteParams {
+    id: ContentId
 }

@@ -3,8 +3,8 @@ import { LessonRepositorySetter } from '../infrestructure/abstract/LessonReposit
 
 export class LessonDeleteUseCase extends LessonRepositorySetter {
     async handle(
-        levelDeleteParams: LessonDeleteParams
+        lessonDeleteParams: LessonDeleteParams
     ): Promise<boolean> {
-        return await this.lessonRepository.delete(levelDeleteParams)
+        return await this.lessonRepository.delete(lessonDeleteParams)
     }
 }

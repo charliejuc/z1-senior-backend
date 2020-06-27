@@ -2,7 +2,7 @@ import {
     Question,
     ContentQuestionType,
     Answer
-} from './../interfaces/ContentCreateParams'
+} from '../interfaces/ContentParams'
 
 export class ContentQuestion {
     private readonly _text: string

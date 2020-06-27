@@ -1,9 +1,10 @@
-import { ContentQuestionType } from './../../../lib/content/domain/interfaces/ContentCreateParams'
+import { ContentQuestionType } from '../../../lib/content/domain/interfaces/ContentParams'
 import { ContentCreateUseCase } from '@/lib/content/application/ContentCreateUseCase'
 import { ContentId } from '@/lib/content/domain/value-object/ContentId'
 import { ContentType } from '@/lib/content/domain/value-object/ContentType'
 import { Order } from '@/lib/shared/domain/value-object/Order'
 import { ContentMock } from '../domain/ContentMock'
+import { Content } from '@/lib/content/domain/Content'
 
 const contentMock = new ContentMock()
 
@@ -14,8 +15,13 @@ test('ContentCreateUseCase should be exists', () => {
 describe('ContentCreateUseCase should return a valid Content instance(type: "text")', () => {
     const randomContentParams = contentMock.random('text')
     const contentCreateUseCase = contentMock.ContentCreateUseCase()
+    let content: Content
 
-    const content = contentCreateUseCase.handle(randomContentParams)
+    beforeAll(async () => {
+        content = await contentCreateUseCase.handle(
+            randomContentParams
+        )
+    })
 
     test('should have id', () => {
         expect(content.id).toBeInstanceOf(ContentId)
@@ -51,10 +57,13 @@ describe('ContentCreateUseCase should return a valid Content instance(type: "qui
             questionType
         })
         const contentCreateUseCase = contentMock.ContentCreateUseCase()
+        let content: Content
 
-        const content = contentCreateUseCase.handle(
-            randomContentParams
-        )
+        beforeAll(async () => {
+            content = await contentCreateUseCase.handle(
+                randomContentParams
+            )
+        })
 
         test('should have id', () => {
             expect(content.id).toBeInstanceOf(ContentId)
@@ -102,11 +111,15 @@ describe('ContentCreateUseCase should return a valid Content instance(type: "qui
         })
         const contentCreateUseCase = contentMock.ContentCreateUseCase()
 
-        const content = contentCreateUseCase.handle(
-            randomContentParams
-        )
-
         describe('should have type', () => {
+            let content: Content
+
+            beforeAll(async () => {
+                content = await contentCreateUseCase.handle(
+                    randomContentParams
+                )
+            })
+
             test('type', () => {
                 expect(content.type).toBeInstanceOf(ContentType)
             })
@@ -131,17 +144,19 @@ describe('ContentCreateUseCase should return a valid Content instance(type: "qui
             })
         })
     })
-
     describe('Question type "open"', () => {
         const questionType: ContentQuestionType = 'open'
         const randomContentParams = contentMock.random('quizz', {
             questionType
         })
         const contentCreateUseCase = contentMock.ContentCreateUseCase()
+        let content: Content
 
-        const content = contentCreateUseCase.handle(
-            randomContentParams
-        )
+        beforeAll(async () => {
+            content = await contentCreateUseCase.handle(
+                randomContentParams
+            )
+        })
 
         describe('should have type', () => {
             test('type', () => {

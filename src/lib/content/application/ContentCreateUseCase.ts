@@ -1,8 +1,13 @@
 import { Content } from '@/lib/content/domain/Content'
-import { ContentCreateParams } from '../domain/interfaces/ContentCreateParams'
+import { ContentCreateParams } from '../domain/interfaces/ContentParams'
+import { ContentRepositorySetter } from '../infrestructure/abstract/ContentRepositorySetter'
 
-export class ContentCreateUseCase {
-    handle(contentCreateParams: ContentCreateParams): Content {
-        return new Content(contentCreateParams)
+export class ContentCreateUseCase extends ContentRepositorySetter {
+    async handle(
+        contentCreateParams: ContentCreateParams
+    ): Promise<Content> {
+        const content = new Content(contentCreateParams)
+
+        return await this.contentRepository.create(content)
     }
 }

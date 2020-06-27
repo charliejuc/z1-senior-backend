@@ -1,12 +1,12 @@
 import {
     Answer,
     Question
-} from './../../../lib/content/domain/interfaces/ContentCreateParams'
+} from '../../../lib/content/domain/interfaces/ContentParams'
 import defaults from 'defaults'
 import {
     ContentCreateParams,
     ContentQuestionType
-} from '@/lib/content/domain/interfaces/ContentCreateParams'
+} from '@/lib/content/domain/interfaces/ContentParams'
 import faker from 'faker'
 
 type methodsAllowed =

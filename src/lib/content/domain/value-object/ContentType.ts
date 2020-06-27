@@ -2,7 +2,7 @@ import {
     ContentNameType,
     ContentTypeObject,
     Question
-} from '../interfaces/ContentCreateParams'
+} from '../interfaces/ContentParams'
 import { ContentQuestion } from './ContentQuestion'
 
 export class ContentType {

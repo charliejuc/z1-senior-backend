@@ -1,5 +1,5 @@
 import { Order } from '@/lib/shared/domain/value-object/Order'
-import { ContentCreateParams } from './interfaces/ContentCreateParams'
+import { ContentCreateParams } from './interfaces/ContentParams'
 import { ContentId } from './value-object/ContentId'
 import { ContentType } from './value-object/ContentType'
 
