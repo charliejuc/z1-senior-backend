@@ -1,9 +1,10 @@
 import { LessonCreateUseCase } from '@/lib/lesson/application/LessonCreateUseCase'
+import { Lesson } from '@/lib/lesson/domain/Lesson'
+import { LessonDescription } from '@/lib/lesson/domain/value-object/LessonDescription'
 import { LessonId } from '@/lib/lesson/domain/value-object/LessonId'
 import { LessonTitle } from '@/lib/lesson/domain/value-object/LessonTitle'
-import { LessonDescription } from '@/lib/lesson/domain/value-object/LessonDescription'
-import { LessonMock } from '../domain/LessonMock'
 import { Order } from '@/lib/shared/domain/value-object/Order'
+import { LessonMock } from '../domain/LessonMock'
 
 const lessonMock = new LessonMock()
 
@@ -13,9 +14,12 @@ test('LessonCreateUseCase should be exists', () => {
 
 describe('LessonCreateUseCase should return a valid Lesson instance', () => {
     const randomLessonParams = lessonMock.random()
-    const lessonCreateUseCase = new LessonCreateUseCase()
+    const lessonCreateUseCase = lessonMock.LessonCreateUseCase()
+    let lesson: Lesson
 
-    const lesson = lessonCreateUseCase.handle(randomLessonParams)
+    beforeAll(async () => {
+        lesson = await lessonCreateUseCase.handle(randomLessonParams)
+    })
 
     test('should have id', () => {
         expect(lesson.id).toBeInstanceOf(LessonId)

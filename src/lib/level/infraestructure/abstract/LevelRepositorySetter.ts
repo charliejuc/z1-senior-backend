@@ -1,4 +1,4 @@
-import { LevelRepository } from './../infraestructure/interfaces/LevelRepository'
+import { LevelRepository } from '../interfaces/LevelRepository'
 
 export abstract class LevelRepositorySetter {
     protected levelRepository: LevelRepository

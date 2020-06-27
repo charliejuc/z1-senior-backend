@@ -1,5 +1,5 @@
 import { LevelDeleteParams } from './../domain/interfaces/LevelParams'
-import { LevelRepositorySetter } from '../abstract/LevelRepositorySetter'
+import { LevelRepositorySetter } from '../infraestructure/abstract/LevelRepositorySetter'
 
 export class LevelDeleteUseCase extends LevelRepositorySetter {
     async handle(

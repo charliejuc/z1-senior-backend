@@ -1,5 +1,5 @@
 import { Level } from '@/lib/level/domain/Level'
-import { LevelRepositorySetter } from '../abstract/LevelRepositorySetter'
+import { LevelRepositorySetter } from '../infraestructure/abstract/LevelRepositorySetter'
 import { LevelCreateParams } from '../domain/interfaces/LevelParams'
 
 export class LevelCreateUseCase extends LevelRepositorySetter {

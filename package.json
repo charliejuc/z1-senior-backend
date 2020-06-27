@@ -15,7 +15,7 @@
         "build": "npm-run-all clean tsc",
         "dev": "npm-run-all build --parallel nodemon tsc:watch",
         "lint": "npm-run-all format eslint",
-        "eslint": "eslint --fix --ext .js,.ts ./src",
+        "eslint": "eslint --fix --ext .ts 'src/**'",
         "jest": "jest",
         "jest:run": "jest --testPathIgnorePatterns dist/",
         "jest:watch": "jest tests --testPathIgnorePatterns dist/ --watch",
@@ -35,7 +35,6 @@
         "uuid": "^8.1.0"
     },
     "devDependencies": {
-        "@types/uuid": "^8.0.0",
         "@babel/core": "^7.9.6",
         "@babel/preset-env": "^7.9.6",
         "@babel/preset-typescript": "^7.9.0",
@@ -43,6 +42,7 @@
         "@types/faker": "^4.1.12",
         "@types/jest": "^25.2.1",
         "@types/node": "^13.7.7",
+        "@types/uuid": "^8.0.0",
         "@typescript-eslint/eslint-plugin": "2",
         "babel-jest": "^25.5.1",
         "babel-plugin-module-resolver": "^4.0.0",

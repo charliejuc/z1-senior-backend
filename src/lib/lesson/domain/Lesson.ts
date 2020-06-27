@@ -1,5 +1,5 @@
 import { LessonId } from './value-object/LessonId'
-import { LessonCreateParams } from './interfaces/LessonCreateParams'
+import { LessonCreateParams } from './interfaces/LessonParams'
 import { LessonTitle } from './value-object/LessonTitle'
 import { LessonDescription } from './value-object/LessonDescription'
 import { Order } from '@/lib/shared/domain/value-object/Order'
