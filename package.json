@@ -13,9 +13,9 @@
     },
     "scripts": {
         "build": "npm-run-all clean tsc",
-        "dev": "npm-run-all build --parallel nodemon tsc:watch",
+        "dev": "NODE_ENV=development npm-run-all build --parallel nodemon tsc:watch",
         "lint": "npm-run-all format eslint",
-        "eslint": "eslint --fix --ext .ts 'src/**'",
+        "eslint": "eslint --fix --ext .ts 'src/**/**'",
         "jest": "jest",
         "jest:run": "jest --testPathIgnorePatterns dist/",
         "jest:watch": "jest tests --testPathIgnorePatterns dist/ --watch",
@@ -26,7 +26,7 @@
         "tsc:watch": "tsc --watch",
         "format": "prettier --write .",
         "nodemon": "nodemon --watch",
-        "start": "node dist/index.js"
+        "start": "NODE_ENV=production node dist/index.js"
     },
     "dependencies": {
         "apollo-server-express": "^2.15.0",

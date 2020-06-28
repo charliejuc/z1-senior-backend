@@ -1,17 +1,18 @@
-import { LevelId } from './value-object/LevelId'
-import { LevelCreateParams } from './interfaces/LevelParams'
-import { LevelTitle } from './value-object/LevelTitle'
+import { LevelParams } from './interfaces/LevelParams'
 import { LevelDescription } from './value-object/LevelDescription'
+import { LevelId } from './value-object/LevelId'
+import { LevelTitle } from './value-object/LevelTitle'
 
 export class Level {
-    private readonly _id = new LevelId()
+    private readonly _id: LevelId
     private readonly _title: LevelTitle
     private readonly _description: LevelDescription
 
-    constructor(levelCreateParams: LevelCreateParams) {
-        this._title = new LevelTitle(levelCreateParams.title)
+    constructor(levelParams: LevelParams) {
+        this._id = new LevelId(levelParams.id)
+        this._title = new LevelTitle(levelParams.title)
         this._description = new LevelDescription(
-            levelCreateParams.description
+            levelParams.description
         )
     }
 

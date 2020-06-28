@@ -6,8 +6,6 @@ import { defaultIfNaN } from './utils/Number'
 
 const serverPort: number = defaultIfNaN(process.env.SERVER_PORT, 3000)
 
-main().catch(console.error)
-
 async function main(): Promise<void> {
     const app = await startServer()
 
@@ -15,3 +13,5 @@ async function main(): Promise<void> {
         console.log(`Listening on port ${serverPort}`)
     })
 }
+
+main().catch(console.error)

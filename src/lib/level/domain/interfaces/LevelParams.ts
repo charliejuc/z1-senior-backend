@@ -6,7 +6,7 @@ export interface LevelCreateParams {
 }
 
 export interface LevelParams extends LevelCreateParams {
-    id: string
+    id?: string
 }
 
 export interface LevelDeleteParams {

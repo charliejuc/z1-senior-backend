@@ -1,3 +1,4 @@
+import { ContentId } from './../../domain/value-object/ContentId'
 import { ContentQuestion } from './../../domain/value-object/ContentQuestion'
 import { Content } from '../../domain/Content'
 import {
@@ -10,6 +11,16 @@ import { Question } from './../../domain/interfaces/ContentParams'
 const ContentData: Map<string, ContentParams> = new Map()
 
 export class ContentInMemoryRepository implements ContentRepository {
+    async findById(id: ContentId): Promise<Content> {
+        const contentParams = ContentData.get(id.id)
+
+        if (contentParams === undefined) {
+            throw new Error(`Content with "${id.id}" id not found`)
+        }
+
+        return new Content(contentParams)
+    }
+
     async create(content: Content): Promise<Content> {
         ContentData.set(content.id.id, {
             id: content.id.id,

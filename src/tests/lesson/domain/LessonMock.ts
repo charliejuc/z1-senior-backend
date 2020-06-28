@@ -3,9 +3,14 @@ import faker from 'faker'
 import { LessonCreateUseCase } from '@/lib/lesson/application/LessonCreateUseCase'
 import { LessonDeleteUseCase } from '@/lib/lesson/application/LessonDeleteUseCase'
 import { LessonInMemoryRepository } from '@/lib/lesson/infrestructure/repositories/LessonInMemoryRepository'
+import { LessonFindByIdUseCase } from '@/lib/lesson/application/LessonFindByIdUseCase'
 
 const lessonInMemoryRepository = new LessonInMemoryRepository()
 export class LessonMock {
+    LessonFindByIdUseCase(): LessonFindByIdUseCase {
+        return new LessonFindByIdUseCase(lessonInMemoryRepository)
+    }
+
     LessonCreateUseCase(): LessonCreateUseCase {
         return new LessonCreateUseCase(lessonInMemoryRepository)
     }

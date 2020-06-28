@@ -8,12 +8,17 @@ import {
 import { ContentInMemoryRepository } from '@/lib/content/infrestructure/repositories/ContentInMemoryRepository'
 import faker from 'faker'
 import { ContentConfig, ContentQuizzMock } from './ContentQuizzMock'
+import { ContentFindByIdUseCase } from '@/lib/content/application/ContentFindByIdUseCase'
 
 type methodsAllowed = 'randomText' | 'randomQuizz'
 
 const contentQuizzMock = new ContentQuizzMock()
 const contentInMemoryRepository = new ContentInMemoryRepository()
 export class ContentMock {
+    ContentFindByIdUseCase(): ContentFindByIdUseCase {
+        return new ContentFindByIdUseCase(contentInMemoryRepository)
+    }
+
     ContentCreateUseCase(): ContentCreateUseCase {
         return new ContentCreateUseCase(contentInMemoryRepository)
     }
