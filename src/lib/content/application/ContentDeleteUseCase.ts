@@ -1,4 +1,4 @@
-import { ContentDeleteParams } from './../domain/interfaces/ContentParams'
+import { ContentDeleteParams } from '../domain/interfaces/ContentParams'
 import { ContentRepositorySetter } from '../infrestructure/abstract/ContentRepositorySetter'
 
 export class ContentDeleteUseCase extends ContentRepositorySetter {
