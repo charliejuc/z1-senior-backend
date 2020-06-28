@@ -4,9 +4,11 @@ import { ContentRepositorySetter } from '../infrestructure/abstract/ContentRepos
 export class ContentDeleteUseCase extends ContentRepositorySetter {
     async handle(
         contentDeleteParams: ContentDeleteParams
-    ): Promise<boolean> {
-        return await this.contentRepository.delete(
+    ): Promise<number> {
+        const deleted = await this.contentRepository.delete(
             contentDeleteParams
         )
+
+        return deleted ? 1 : 0
     }
 }

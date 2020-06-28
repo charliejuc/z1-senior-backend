@@ -1,8 +1,8 @@
-import { LevelCreateParams } from '@/lib/level/domain/interfaces/LevelParams'
+import { LessonCreateParams } from '@/lib/lesson/domain/interfaces/LessonParams'
 import { Field, InputType, ObjectType } from 'type-graphql'
 
 @ObjectType()
-export class LevelTypeGraphQL implements LevelCreateParams {
+export class LessonTypeGraphQL implements LessonCreateParams {
     @Field()
     id?: string
 
@@ -11,19 +11,25 @@ export class LevelTypeGraphQL implements LevelCreateParams {
 
     @Field()
     description!: string
+
+    @Field()
+    order!: number
 }
 
 @ObjectType()
-export class LevelDeleteTypeGraphQL {
+export class LessonDeleteTypeGraphQL {
     @Field()
     deletedCount!: number
 }
 
 @InputType()
-export class LevelInputTypeGraphQL implements LevelCreateParams {
+export class LessonInputTypeGraphQL implements LessonCreateParams {
     @Field()
     title!: string
 
     @Field()
     description!: string
+
+    @Field()
+    order!: number
 }

@@ -4,7 +4,11 @@ import { LessonRepositorySetter } from '../infrestructure/abstract/LessonReposit
 export class LessonDeleteUseCase extends LessonRepositorySetter {
     async handle(
         lessonDeleteParams: LessonDeleteParams
-    ): Promise<boolean> {
-        return await this.lessonRepository.delete(lessonDeleteParams)
+    ): Promise<number> {
+        const deleted = await this.lessonRepository.delete(
+            lessonDeleteParams
+        )
+
+        return deleted ? 1 : 0
     }
 }

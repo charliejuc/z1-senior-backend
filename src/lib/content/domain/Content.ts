@@ -1,16 +1,17 @@
 import { Order } from '@/lib/shared/domain/value-object/Order'
-import { ContentCreateParams } from './interfaces/ContentParams'
+import { ContentParams } from './interfaces/ContentParams'
 import { ContentId } from './value-object/ContentId'
 import { ContentType } from './value-object/ContentType'
 
 export class Content {
-    private readonly _id = new ContentId()
+    private readonly _id: ContentId
     private readonly _type: ContentType
     private readonly _order: Order
 
-    constructor(contentCreateParams: ContentCreateParams) {
-        this._type = new ContentType(contentCreateParams.type)
-        this._order = new Order(contentCreateParams.order)
+    constructor(contentParams: ContentParams) {
+        this._id = new ContentId(contentParams.id)
+        this._type = new ContentType(contentParams.type)
+        this._order = new Order(contentParams.order)
     }
 
     public get id(): ContentId {

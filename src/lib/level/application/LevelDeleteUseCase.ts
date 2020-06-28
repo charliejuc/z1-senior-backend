@@ -4,7 +4,11 @@ import { LevelRepositorySetter } from '../infraestructure/abstract/LevelReposito
 export class LevelDeleteUseCase extends LevelRepositorySetter {
     async handle(
         levelDeleteParams: LevelDeleteParams
-    ): Promise<boolean> {
-        return await this.levelRepository.delete(levelDeleteParams)
+    ): Promise<number> {
+        const deleted = await this.levelRepository.delete(
+            levelDeleteParams
+        )
+
+        return deleted ? 1 : 0
     }
 }
