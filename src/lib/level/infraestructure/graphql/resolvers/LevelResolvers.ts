@@ -1,36 +1,10 @@
 import { LevelCreateUseCase } from '@/lib/level/application/LevelCreateUseCase'
-import { LevelCreateParams } from '@/lib/level/domain/interfaces/LevelParams'
+import { Arg, Mutation, Query, Resolver } from 'type-graphql'
 import {
-    Arg,
-    Field,
-    Mutation,
-    ObjectType,
-    Query,
-    Resolver,
-    InputType
-} from 'type-graphql'
+    LevelInputTypeGraphQL,
+    LevelTypeGraphQL
+} from '../types/LevelTypes'
 import { LevelInMemoryRepository } from './../../repositories/LevelInMemoryRepository'
-
-@ObjectType()
-export class LevelTypeGraphQL implements LevelCreateParams {
-    @Field()
-    id?: string
-
-    @Field()
-    title!: string
-
-    @Field()
-    description!: string
-}
-
-@InputType()
-export class LevelInputTypeGraphQL implements LevelCreateParams {
-    @Field()
-    title!: string
-
-    @Field()
-    description!: string
-}
 
 const levelRepository = new LevelInMemoryRepository()
 const levelCreateUseCase = new LevelCreateUseCase(levelRepository)
