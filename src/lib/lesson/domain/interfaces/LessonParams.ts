@@ -7,7 +7,7 @@ export interface LessonCreateParams {
 }
 
 export interface LessonParams extends LessonCreateParams {
-    id: string
+    id?: string
 }
 
 export interface LessonDeleteParams {

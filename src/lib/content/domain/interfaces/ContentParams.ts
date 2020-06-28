@@ -1,16 +1,16 @@
 import { ContentId } from '@/lib/content/domain/value-object/ContentId'
-export interface Answer {
-    text: string
-    correct: boolean
+
+export interface ContentCreateParams {
+    order: number
+    type: ContentTypeObject
 }
 
-export type ContentQuestionType = 'simple' | 'multiple' | 'open'
-export interface Question {
-    text: string
-    type: ContentQuestionType
+export interface ContentParams extends ContentCreateParams {
+    id?: string
+}
 
-    // only for simple and multiple questions
-    answers?: Answer[]
+export interface ContentDeleteParams {
+    id: ContentId
 }
 
 export type ContentNameType = 'text' | 'quizz'
@@ -26,15 +26,16 @@ export interface ContentTypeObject {
     // \quizz type keys
 }
 
-export interface ContentCreateParams {
-    order: number
-    type: ContentTypeObject
+export type ContentQuestionType = 'simple' | 'multiple' | 'open'
+export interface Question {
+    text: string
+    type: ContentQuestionType
+
+    // only for simple and multiple questions
+    answers?: Answer[]
 }
 
-export interface ContentParams extends ContentCreateParams {
-    id: string
-}
-
-export interface ContentDeleteParams {
-    id: ContentId
+export interface Answer {
+    text: string
+    correct: boolean
 }

@@ -1,9 +1,9 @@
-import { LessonCreateParams } from '@/lib/lesson/domain/interfaces/LessonParams'
-import faker from 'faker'
 import { LessonCreateUseCase } from '@/lib/lesson/application/LessonCreateUseCase'
 import { LessonDeleteUseCase } from '@/lib/lesson/application/LessonDeleteUseCase'
-import { LessonInMemoryRepository } from '@/lib/lesson/infrestructure/repositories/LessonInMemoryRepository'
 import { LessonFindByIdUseCase } from '@/lib/lesson/application/LessonFindByIdUseCase'
+import { LessonParams } from '@/lib/lesson/domain/interfaces/LessonParams'
+import { LessonInMemoryRepository } from '@/lib/lesson/infrestructure/repositories/LessonInMemoryRepository'
+import faker from 'faker'
 
 const lessonInMemoryRepository = new LessonInMemoryRepository()
 export class LessonMock {
@@ -19,7 +19,7 @@ export class LessonMock {
         return new LessonDeleteUseCase(lessonInMemoryRepository)
     }
 
-    random(): LessonCreateParams {
+    random(): LessonParams {
         return {
             title: faker.name.title(),
             description: faker.lorem.paragraph(),
