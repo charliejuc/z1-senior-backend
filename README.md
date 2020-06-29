@@ -18,8 +18,8 @@ yarn dev
 
 ### Architecture Overview
 #### src/lib
-This is the core, I am using using hexagonal architecture to keeps **domain**(business logic), 
-**application**(use cases) and **infraestructure**(framework, database, HTTP API... stuffs).
+This is the core, I am using using hexagonal architecture to keep **domain**(business logic), 
+**application**(use cases) and **infraestructure**(framework, database, HTTP API... stuffs) separate.
 ```bash
 src/lib
 ├── content
@@ -38,9 +38,10 @@ src/lib
     └── domain
 ```
 
-#### src/lib/*/domain
+#### src/lib/*/\*
 We will use "level" as an example, but "content" and "lesson" follow the same structure.
 
+#### src/lib/*/domain
 ```bash
 src/lib/level/domain
 ├── interfaces
@@ -55,12 +56,56 @@ src/lib/level/domain
 ##### Level.ts
 Level model, this should not be confused with a database model.
 
-Its function is to create a **safe Level** instance with validated properties. (More in **value-objects** section)
+Its function is to create a **safe Level** instance with validated properties. (More in **value-object** section)
 
 Uses interfaces from **"interfaces/LevelParams.ts"** to specify the parameters required to create
 the instance.
 
 ##### value-object
-Value objects have the function of validating data (title or description length for example), 
+Value objects have the function of **validating data** (title or description length for example), 
 although they are not yet doing so, in case of invalid input they will throw an exception 
 that we can catch in use cases or resolvers.
+
+Value objects provide us the benefit to trust the data they contain.
+
+#### src/lib/*/application
+```bash
+src/lib/level/application
+├── LevelCreateUseCase.ts
+├── LevelDeleteUseCase.ts
+└── LevelFindByIdUseCase.ts
+```
+
+##### Use cases
+Represent a **specific action** that users can perform when interacting with the system.
+Their names are self-descriptive.
+
+#### src/lib/*/infraestructure
+```bash
+src/lib/level/infraestructure
+├── abstract
+│   └── LevelRepositorySetter.ts
+├── graphql
+│   ├── resolvers
+│   │   └── LevelResolvers.ts
+│   └── types
+│       └── LevelTypes.ts
+├── interfaces
+│   └── LevelRepository.ts
+└── repositories
+    └── LevelInMemoryRepository.ts
+```
+
+##### LevelRepositorySetter.ts
+Sets "levelRepository" property on the constructor when another class inherits from it.
+
+##### grapql
+Contains graphql related functionality.
+
+##### LevelRepository.ts
+Extends Repository interface from **"src/lib/shared"** folder.
+
+Repository interface allows **"findById", "create"** and **"delete"** methods for now.
+
+##### LevelInMemoryRepository.ts
+Implements LevelRepository interface by saving the data as a variable. (Volatile)
