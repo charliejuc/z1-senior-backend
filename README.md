@@ -1,5 +1,5 @@
 # Z1 Senior Backend
-Z1 Tecnical Test with Apollo Server and Type graphql.
+Z1 Tecnical Test with Apollo Server and Type GraphQL.
 
 ### Dependencies Installation:
 ```bash
