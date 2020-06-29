@@ -1,5 +1,5 @@
-import { ContentId } from './../../domain/value-object/ContentId'
-import { Repository } from './../../../shared/domain/interfaces/Repository'
+import { ContentId } from '../../domain/value-object/ContentId'
+import { Repository } from '../../../shared/domain/interfaces/Repository'
 import { Content } from '../../domain/Content'
 import { ContentDeleteParams } from '../../domain/interfaces/ContentParams'
 

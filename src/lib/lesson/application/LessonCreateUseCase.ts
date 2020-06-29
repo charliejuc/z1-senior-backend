@@ -1,6 +1,6 @@
 import { Lesson } from '@/lib/lesson/domain/Lesson'
 import { LessonParams } from '../domain/interfaces/LessonParams'
-import { LessonRepositorySetter } from '../infrestructure/abstract/LessonRepositorySetter'
+import { LessonRepositorySetter } from '../infraestructure/abstract/LessonRepositorySetter'
 
 export class LessonCreateUseCase extends LessonRepositorySetter {
     async handle(lessonParams: LessonParams): Promise<Lesson> {

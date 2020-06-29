@@ -8,8 +8,8 @@ import {
     ContentInputTypeGraphQL,
     ContentTypeGraphQL
 } from '../types/ContentTypes'
-import { ContentToContentTypeGraphQL } from './../../adapters/ContentToContentTypeGraphQL'
-import { ContentInMemoryRepository } from './../../repositories/ContentInMemoryRepository'
+import { ContentToContentTypeGraphQL } from '../../adapters/ContentToContentTypeGraphQL'
+import { ContentInMemoryRepository } from '../../repositories/ContentInMemoryRepository'
 
 const contentRepository = new ContentInMemoryRepository()
 const contentCreateUseCase = new ContentCreateUseCase(

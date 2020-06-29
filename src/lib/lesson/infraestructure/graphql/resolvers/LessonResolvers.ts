@@ -7,7 +7,7 @@ import {
     LessonTypeGraphQL,
     LessonDeleteTypeGraphQL
 } from '../types/LessonTypes'
-import { LessonInMemoryRepository } from './../../repositories/LessonInMemoryRepository'
+import { LessonInMemoryRepository } from '../../repositories/LessonInMemoryRepository'
 import { LessonDeleteUseCase } from '@/lib/lesson/application/LessonDeleteUseCase'
 
 const lessonRepository = new LessonInMemoryRepository()

@@ -1,12 +1,12 @@
-import { ContentId } from './../../domain/value-object/ContentId'
-import { ContentQuestion } from './../../domain/value-object/ContentQuestion'
+import { ContentId } from '../../domain/value-object/ContentId'
+import { ContentQuestion } from '../../domain/value-object/ContentQuestion'
 import { Content } from '../../domain/Content'
 import {
     ContentDeleteParams,
-    ContentParams
+    ContentParams,
+    Question
 } from '../../domain/interfaces/ContentParams'
 import { ContentRepository } from '../interfaces/ContentRepository'
-import { Question } from './../../domain/interfaces/ContentParams'
 
 const ContentData: Map<string, ContentParams> = new Map()
 

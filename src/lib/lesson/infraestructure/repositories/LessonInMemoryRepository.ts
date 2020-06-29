@@ -1,4 +1,4 @@
-import { LessonId } from './../../domain/value-object/LessonId'
+import { LessonId } from '../../domain/value-object/LessonId'
 import {
     LessonDeleteParams,
     LessonParams

@@ -1,5 +1,5 @@
-import { LessonId } from './../../domain/value-object/LessonId'
-import { Repository } from './../../../shared/domain/interfaces/Repository'
+import { LessonId } from '../../domain/value-object/LessonId'
+import { Repository } from '../../../shared/domain/interfaces/Repository'
 import { Lesson } from '../../domain/Lesson'
 import { LessonDeleteParams } from '../../domain/interfaces/LessonParams'
 

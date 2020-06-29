@@ -2,7 +2,7 @@ import { LessonCreateUseCase } from '@/lib/lesson/application/LessonCreateUseCas
 import { LessonDeleteUseCase } from '@/lib/lesson/application/LessonDeleteUseCase'
 import { LessonFindByIdUseCase } from '@/lib/lesson/application/LessonFindByIdUseCase'
 import { LessonParams } from '@/lib/lesson/domain/interfaces/LessonParams'
-import { LessonInMemoryRepository } from '@/lib/lesson/infrestructure/repositories/LessonInMemoryRepository'
+import { LessonInMemoryRepository } from '@/lib/lesson/infraestructure/repositories/LessonInMemoryRepository'
 import faker from 'faker'
 
 const lessonInMemoryRepository = new LessonInMemoryRepository()

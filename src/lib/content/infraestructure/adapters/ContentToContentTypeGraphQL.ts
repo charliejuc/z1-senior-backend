@@ -3,7 +3,7 @@ import {
     ContentTypeGraphQL,
     QuestionTypeGraphQL
 } from '../graphql/types/ContentTypes'
-import { ContentQuestion } from './../../domain/value-object/ContentQuestion'
+import { ContentQuestion } from '../../domain/value-object/ContentQuestion'
 
 export class ContentToContentTypeGraphQL {
     parse(content: Content): ContentTypeGraphQL {

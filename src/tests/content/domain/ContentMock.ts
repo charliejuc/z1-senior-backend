@@ -5,7 +5,7 @@ import {
     ContentCreateParams,
     ContentNameType
 } from '@/lib/content/domain/interfaces/ContentParams'
-import { ContentInMemoryRepository } from '@/lib/content/infrestructure/repositories/ContentInMemoryRepository'
+import { ContentInMemoryRepository } from '@/lib/content/infraestructure/repositories/ContentInMemoryRepository'
 import faker from 'faker'
 import { ContentConfig, ContentQuizzMock } from './ContentQuizzMock'
 import { ContentFindByIdUseCase } from '@/lib/content/application/ContentFindByIdUseCase'

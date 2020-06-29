@@ -1,6 +1,6 @@
 import { Content } from '@/lib/content/domain/Content'
 import { ContentCreateParams } from '../domain/interfaces/ContentParams'
-import { ContentRepositorySetter } from '../infrestructure/abstract/ContentRepositorySetter'
+import { ContentRepositorySetter } from '../infraestructure/abstract/ContentRepositorySetter'
 
 export class ContentCreateUseCase extends ContentRepositorySetter {
     async handle(

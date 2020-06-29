@@ -1,5 +1,5 @@
 import { LessonDeleteParams } from './../domain/interfaces/LessonParams'
-import { LessonRepositorySetter } from '../infrestructure/abstract/LessonRepositorySetter'
+import { LessonRepositorySetter } from '../infraestructure/abstract/LessonRepositorySetter'
 
 export class LessonDeleteUseCase extends LessonRepositorySetter {
     async handle(

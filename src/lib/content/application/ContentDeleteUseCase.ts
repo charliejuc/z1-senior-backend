@@ -1,5 +1,5 @@
 import { ContentDeleteParams } from '../domain/interfaces/ContentParams'
-import { ContentRepositorySetter } from '../infrestructure/abstract/ContentRepositorySetter'
+import { ContentRepositorySetter } from '../infraestructure/abstract/ContentRepositorySetter'
 
 export class ContentDeleteUseCase extends ContentRepositorySetter {
     async handle(
