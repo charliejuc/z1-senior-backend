@@ -16,6 +16,10 @@ yarn test
 yarn dev
 ```
 
+GraphQL slug: **'/graphql'**.
+
+Full GraphQL URL on localhost: **localhost:3000/graphql**
+
 ### Architecture Overview
 #### src/lib
 This is the core, I am using using hexagonal architecture to keep **domain**(business logic), 
@@ -109,3 +113,13 @@ Repository interface allows **"findById", "create"** and **"delete"** methods fo
 
 ##### LevelInMemoryRepository.ts
 Implements LevelRepository interface by saving the data as a variable. (Volatile)
+
+### src/
+```bash
+./src
+├── index.ts
+├── lib
+├── Server.ts
+├── tests
+└── utils
+```
