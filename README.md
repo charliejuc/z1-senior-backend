@@ -123,3 +123,12 @@ Implements LevelRepository interface by saving the data as a variable. (Volatile
 ├── tests
 └── utils
 ```
+
+#### index.ts
+Project main file.
+
+#### Server.ts
+Express and Apollo Server bootstrapping.
+
+#### utils
+Some project utilities.
